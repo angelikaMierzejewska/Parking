@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Parking</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/transaction">Transaction history</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Driver <span th:text="${driver.username}"></span></h1>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover ">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>username</th>
+                                <th>firstName</th>
+                                <th>email</th>
+                                <th>phone</th>
+                                <th>isVip</th>
+                            </tr>
+                            </thead>
+                            <tr>
+                                <td th:text="${driver.username}">123</td>
+                                <td th:text="${driver.firstName}"></td>
+                                <td th:text="${driver.email}"></td>
+                                <td th:text="${driver.phone}"></td>
+                                <td th:text="${driver.isVip}"></td>
+                            </tr>
+                        </table>
+                        <table class="table table-hover ">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>startTime</th>
+                                <th>endTime</th>
+                                <th>hours</th>
+                                <th>cost</th>
+                            </tr>
+                            </thead>
+                            <tr >
+                                <td th:text="${driver.startTime}"></td>
+                                <td th:text="${driver.endTime}">123</td>
+                                <td th:text="${driver.getHours()}">123</td>
+                                <td th:text="${driver.cost}">123</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="panel-heading">
+                    <h1 class="panel-title">Start parking</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover ">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>Start parking time</th>
+                                <th>Stop parking time</th>
+                                <th>Pay</th>
+                            </tr>
+                            </thead>
+                            <tr>
+                                <th>
+                                    <form th:action="${'/driver/start'}" method="post">
+                                        <input type="submit" value="Start"
+                                               name="Submit" id="frm1_submit" />
+                                    </form>
+                                </th>
+                                <th>
+                                    <form th:action="${'/driver/stop'}" method="post">
+                                        <input type="submit" value="Stop"
+                                               name="Submit" id="frm1_submit" />
+                                    </form>
+                                </th>
+                                <th>
+                                    <form th:action="${'/driver/pay'}" method="post">
+                                        <input type="submit" value="Pay"
+                                               name="Submit" id="frm1_submit" />
+                                    </form>
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

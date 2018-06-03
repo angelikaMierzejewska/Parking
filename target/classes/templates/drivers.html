@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/drivers">Parking</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li ><a href="/drivers">Drivers list</a></li>
+            <li><a href="/parking">Parking data</a></li>
+            <li><a href="/transactions">Transaction history</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Drivers</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+
+                        <table class="table table-hover ">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>userId</th>
+                                <th>username</th>
+                                <th>firstName</th>
+                                <th>lastName</th>
+                                <th>email</th>
+                                <th>phone</th>
+                                <th>isVip</th>
+                            </tr>
+                            </thead>
+                            <tr th:each=" d : ${drivers}">
+                                <td th:text="${d.userId}"></td>
+                                <td th:text="${d.username}"></td>
+                                <td th:text="${d.firstName}"></td>
+                                <td th:text="${d.lastName}"></td>
+                                <td th:text="${d.email}"></td>
+                                <td th:text="${d.phone}"></td>
+                                <td th:text="${d.isVip}"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
